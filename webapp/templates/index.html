@@ -1,23 +1,20 @@
 {% extends "template.html" %}
 {% block body %}
   <!-- Add your site or application content here -->
-  <div class="container-fluid">
-    <h1 class="display-1">Welcome.</h1>
+  <div class="jumbotron">
+      <h1 class="display-1" style='text-align: center;'>
+        Welcome!
+      </h1>
   </div>
-  <p>
-    <a class="btn btn-primary href="https://getbootstrap.com/docs/4.0/components/jumbotron/">TSV</a>
-    <button type="button" class="btn btn-dark">Dark</button>
-  </p>
-  <div class="row">
-    <div class="col-sm">
-      Column
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-sm"><button type="button" class="btn btn-dark btn-lg btn-block">Dark</button></div>
+      <div class="col-sm"><button type="button" class="btn btn-dark btn-lg btn-block">Dark</button></div>
     </div>
-    <div class="col-sm">
-      Column 2
+    <div class="row">
+      <div class="col-sm"><button type="button" class="btn btn-dark btn-lg btn-block">Dark</button></div>
+      <div class="col-sm"><button type="button" class="btn btn-dark btn-lg btn-block">Dark</button></div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-sm"><h1>Column</h1></div>
-    <div class="col-sm"><h1>Hello</h1><p>Column 3</p></div>
   </div>
 {% endblock %}
