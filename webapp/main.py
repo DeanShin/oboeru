@@ -1,19 +1,22 @@
-from flask import *
-from flask_socketio import SocketIO
+from flask import Flask, request, flash, url_for, redirect, render_template
+from flask_sqlalchemy import SQLAlchemy
+from database_setup import Base, Sentence
 
-# Create flask app, SocketIO object, and global pi 'thing' object.
+# Create flask app.
 app = Flask(__name__)
-socketio = SocketIO(app)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///sentences.sqlite3'
+db = SQLAlchemy(app)
 
 # Define app routes.
-# Index route renders the main HTML page.
 @app.route("/")
 def index():
     return render_template('index.html')
 
+
 @app.route("/learn/")
 def learn():
-    return render_template('learn.html')
+    sentences = db.session.query(Sentence).all()
+    return render_template('learn.html', sentences=sentences)
 
 @app.route("/practice/")
 def practice():
@@ -28,5 +31,4 @@ def about():
     return render_template('about.html')
 
 if __name__ == "__main__":
-    # Run the flask development web server with SocketIO.
-    socketio.run(app, host='0.0.0.0', debug=True)
+    app.run(host='0.0.0.0', debug=True)
