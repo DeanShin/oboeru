@@ -1,11 +1,12 @@
 from flask import Flask, request, flash, url_for, redirect, render_template
 from flask_sqlalchemy import SQLAlchemy
-from database_setup import Base, Sentence
+from database_setup import Base, Sentence, Grammar
 from random import shuffle, choice
 
 # Create flask app.
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///sentences.sqlite3'
+app.config['SQLALCHEMY_BINDS'] = 'sqlite:///grammar.sqlite3'
 db = SQLAlchemy(app)
 
 # Define app routes.
