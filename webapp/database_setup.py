@@ -16,7 +16,7 @@ class Sentence(Base):
    id = Column(Integer, primary_key=True)
    sentence = Column(String(250), nullable=False)
 
-#creates a create_engine instance at the bottom of the file
-engine = create_engine('sqlite:///sentences.sqlite3')
+# #creates a create_engine instance at the bottom of the file
+# engine = create_engine('sqlite:///sentences.sqlite3')
 
-Base.metadata.create_all(engine)
+# Base.metadata.create_all(engine)

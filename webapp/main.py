@@ -1,6 +1,7 @@
 from flask import Flask, request, flash, url_for, redirect, render_template
 from flask_sqlalchemy import SQLAlchemy
 from database_setup import Base, Sentence
+from random import shuffle, choice
 
 # Create flask app.
 app = Flask(__name__)
@@ -16,7 +17,9 @@ def index():
 @app.route("/learn/")
 def learn():
     sentences = db.session.query(Sentence).all()
-    return render_template('learn.html', sentences=sentences)
+    # shuffle(sentences)
+    s = choice(sentences)
+    return render_template('learn.html', sentence=s)
 
 @app.route("/practice/")
 def practice():
