@@ -35,8 +35,7 @@ class Sentence(Base):
       blank_pos_end = e
 
 
-
 # #creates a create_engine instance at the bottom of the file
-# engine = create_engine('sqlite:///sentences.sqlite3')
 
-# Base.metadata.create_all(engine)
+engine = create_engine('sqlite:///sentences.sqlite3')
+Base.metadata.create_all(engine)

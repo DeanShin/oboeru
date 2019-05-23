@@ -6,7 +6,7 @@ from random import shuffle, choice
 # Create flask app.
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///sentences.sqlite3'
-app.config['SQLALCHEMY_BINDS'] = 'sqlite:///grammar.sqlite3'
+# app.config['SQLALCHEMY_BINDS'] = 'sqlite:///grammar.sqlite3'
 db = SQLAlchemy(app)
 
 # Define app routes.
@@ -18,6 +18,7 @@ def index():
 @app.route("/learn/")
 def learn():
     sentences = db.session.query(Sentence).all()
+    print(sentences)
     # shuffle(sentences)
     s = choice(sentences)
     return render_template('learn.html', sentence=s)
