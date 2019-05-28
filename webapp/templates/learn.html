@@ -1,28 +1,42 @@
 {% extends "template.html" %}
 {% block body %}
 
+<meta id="correct_pos_data" data-n="{{correct_pos}}">
 
 <!-- Add your site or application content here -->
 <div class="container" style="height: 400px">
 <div class="jumbotron" style="height: 350px">
-<h1>{{sentence.sentence}} {{sentence.id}}</h1>
+<h2>{{sentence}}</h2>
 <!-- 
     {% for s in sentences %}
     <h2>sentence: {{s.sentence}} id: {{s.id}}</h2>
     {% endfor %} -->
 
 </div>
-</div>
+
+<div class="alert" id="buttonAlert"><strong>Success!</strong></div>
+
 <div class="container">
-    <div class="row">
-      <div class="col-sm"><button type="button" class="btn btn-dark btn-lg btn-block">Dark</button></div>
-      <div class="col-sm"><button type="button" class="btn btn-dark btn-lg btn-block">Dark</button></div>
-    </div>
-  <br>
-    <div class="row">
-      <div class="col-sm"><button type="button" class="btn btn-dark btn-lg btn-block">Dark</button></div>
-      <div class="col-sm"><button type="button" class="btn btn-dark btn-lg btn-block">Dark</button></div>
-    </div>
+  <div class="row">
+    <div class="col-sm"><a href="#" class="option btn btn-dark btn-lg btn-block" id="0">{{answers[0]}}</a></div>
+    <div class="col-sm"><a href="#" class="option btn btn-dark btn-lg btn-block" id="1">{{answers[1]}}</a></div>
   </div>
+<br>
+  <div class="row">
+    <div class="col-sm"><a href="#" class="option btn btn-dark btn-lg btn-block" id="2">{{answers[2]}}</a></div>
+    <div class="col-sm"><a href="#" class="option btn btn-dark btn-lg btn-block" id="3">{{answers[3]}}</a></div>
+  </div>
+</div>
+
+<script>
+$(document).ready(function() {
+  $("#buttonAlert").hide()
+  $(".option").click(function() {
+    if(this.id == $('#correct_pos_data').data("n")){
+      $("#buttonAlert").show()
+    }
+  })
+})
+</script>
   
 {% endblock %}
