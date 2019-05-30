@@ -23,10 +23,12 @@ Into Windows Powershell.
 # todo
 ## forseeable
 * Generate new flashcard after flashcard answered.
-* 
-*
-*
-*
+* Clean up sentences (remove {} things and |1 stuff)
+* Create database of user-submitted sentences
+* Upvote and downvote system for user-submitted sentences
+* Prioritize long grammar items over particles
 ## ambitions
-*
-*
+* Search for grammar function
+* Sentences tailored to user settings.
+* Look up unknown words and grammar
+* Generate random sentences around grammar items
